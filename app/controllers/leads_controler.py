@@ -32,7 +32,6 @@ def get_leads():
     session: Session = current_app.db.session
 
     base_query = session.query(LeadModel)
-    print(base_query)
     leads = base_query.order_by(desc(LeadModel.visits)).all()
     if not leads:
         return {"Error" - "Nenhum dado encontrado"}
